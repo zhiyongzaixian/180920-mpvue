@@ -2,7 +2,7 @@
   <div id="booksContainer">
     <swiper indicator-dots indicator-color="green" indicator-active-color="deeppink">
       <swiper-item v-for="(item, index) in carouselList" :key="index">
-        <img src="/static/imgs/firstView/1.jpg" alt="">
+        <img :src="item.image" alt="">
       </swiper-item>
     </swiper>
     <div class="books">
