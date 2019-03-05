@@ -1,0 +1,9 @@
+{
+  "name": "mpvue_server",
+  "version": "1.0.0",
+  "dependencies": {
+    "flyio": "^0.6.13",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0"
+  }
+}
