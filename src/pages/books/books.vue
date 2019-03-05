@@ -1,6 +1,7 @@
 <template>
-  <div >
-    测试数据。。。
+  <div>
+    books
+
   </div>
 </template>
 
@@ -9,6 +10,5 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  div
-    color red
+
 </style>
