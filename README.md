@@ -1,37 +1,9 @@
-# mpvue_test
-
-> A Mpvue project
-
-## Build Setup
-
-``` bash
-# 初始化项目
-vue init mpvue/mpvue-quickstart myproject
-cd myproject
-
-# 安装依赖
-yarn
-
-# 开发时构建
-npm dev
-
-# 打包构建
-npm build
-
-# 指定平台的开发时构建(微信、百度、头条、支付宝)
-npm dev:wx
-npm dev:swan
-npm dev:tt
-npm dev:my
-
-# 指定平台的打包构建
-npm build:wx
-npm build:swan
-npm build:tt
-npm build:my
-
-# 生成 bundle 分析报告
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# mpvue
+## mpvue特点
+  1. 以vue.js为核心搭建的框架
+  2. 支持vue.js语法进行开发小程序
+  3. mpvue既支持vue的生命周期函数同时也支持小程序的生命周期函数，但是不推荐小程序的
+## mpvue文件特点
+  1. app.vue ---> app.js(注册整个小程序应用) + app.wxss(全局样式文件)
+  2. main.js ---> 对应文件的入口文件 ---> 注册应用 || 页面
+  3. 页面中的main.js === Page()
