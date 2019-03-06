@@ -2,8 +2,6 @@ let Koa = require('koa');
 let KoaRouter = require('koa-router');
 let {get} = require('./utils/request')
 
-
-
 // 生成实例应用
 const app = new Koa();
 

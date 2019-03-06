@@ -1,17 +1,33 @@
 <template>
   <div id="searchContainer">
     <div class="head">
-      <input v-model="searchContent" type="text" placeholder="书中自有黄金屋" placeholder-class="placeholder">
-      <span v-show="searchContent.length" @click="searchContent=''" class="clean">X</span>
+      <input @confirm="handleSearch" v-model="searchContent" confirm-type="搜索" type="text" placeholder="书中自有黄金屋" placeholder-class="placeholder">
+      <span v-show="searchContent.length" @click="searchContent='';booksList=[]" class="clean">X</span>
+    </div>
+    <div v-if="booksList.length">
+      <BookList :booksList="booksList"/>
     </div>
   </div>
 </template>
 
 <script>
+  import request from '../../utils/request'
+
+  import BookList from '../bookList/bookList.vue'
   export default {
+    components: {BookList},
     data(){
       return {
-        searchContent: ''
+        searchContent: '',
+        booksList: []
+      }
+    },
+    methods: {
+      async handleSearch(){
+        console.log(this.searchContent);
+        let result = await request('/searchBooks', {req: this.searchContent})
+        console.log(result);
+        this.booksList = result.data.books
       }
     }
   }
