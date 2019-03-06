@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/searchBook/main",
-    "pages/books/main",
-    "pages/bookList/main",
     "pages/personal/main",
+    "pages/books/main",
+    "pages/detail/main",
+    "pages/searchBook/main",
+    "pages/bookList/main",
     "pages/firstView/main"
   ],
   "window": {

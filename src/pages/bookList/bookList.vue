@@ -1,6 +1,6 @@
 <template>
   <div id="bookListContainer">
-    <div class ="booksList" v-for="(item, index) in booksList" :key="index">
+    <div @click="toDetail(item)" class ="booksList" v-for="(item, index) in booksList" :key="index">
       <img class="bookImg" :src="item.image" alt="">
       <div class="bookInfo">
         <p>{{item.title}}</p>
@@ -30,6 +30,13 @@
       // 接收路由参数传递过来的数据
       if(this.$mp){
         this.booksList = JSON.parse(this.$mp.query.booksList)
+      }
+    },
+    methods: {
+      toDetail(book){
+        wx.navigateTo({
+          url: '/pages/detail/main?book=' + JSON.stringify(book)
+        })
       }
     }
   }
