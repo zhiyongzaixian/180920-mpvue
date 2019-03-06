@@ -36,6 +36,14 @@ router.get('/getOpenId', async (ctx, next) => {
   ctx.body = JSON.parse(result.data).openid;
 });
 
+router.get('/scanCode', async (ctx, next) => {
+  let scanCode = ctx.query.scanCode;
+  let url = `https://api.douban.com/v2/book/isbn/${scanCode}`;
+  let result = await get(url)
+  ctx.body = result;
+});
+
+
 // 声明使用中间键
 app
   .use(router.routes())

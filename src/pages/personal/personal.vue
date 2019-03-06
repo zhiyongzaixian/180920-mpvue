@@ -6,7 +6,7 @@
       <button v-else>{{userInfo.nickName}}</button>
     </div>
     <div class="list">
-      <div class="card">
+      <div class="card" @click="handleScanCode">
         <span>扫码看书</span>
         <span class="more">more ></span>
       </div>
@@ -43,6 +43,11 @@
         if(res.mp.detail.userInfo){
           this.userInfo = res.mp.detail.userInfo
         }
+      },
+      handleScanCode(){
+        wx.navigateTo({
+          url: '/pages/scan/main'
+        })
       }
     }
   }

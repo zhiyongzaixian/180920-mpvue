@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/personal/main",
+    "pages/scan/main",
     "pages/books/main",
     "pages/detail/main",
     "pages/searchBook/main",
