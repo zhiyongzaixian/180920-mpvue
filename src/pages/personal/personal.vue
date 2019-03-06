@@ -1,8 +1,9 @@
 <template>
   <div id="personalContainer">
     <div class="userInfo">
-      <img src="/static/imgs/firstView/1.jpg" alt="">
-      <button>登录</button>
+      <img :src="userInfo.avatarUrl?userInfo.avatarUrl:'/static/imgs/personal/personal.png'" alt="">
+      <button @getuserinfo="handleGetUserInfo" open-type="getUserInfo" v-if="!userInfo.nickName">登录</button>
+      <button v-else>{{userInfo.nickName}}</button>
     </div>
     <div class="list">
       <div class="card">
@@ -18,7 +19,33 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    data(){
+      return {
+        userInfo: {}
+      }
+    },
+    mounted(){
+      // 获取用户信息, 在用户授权之后才能成功获取用户数据
+      wx.getUserInfo({
+        success: (res) => {
+          console.log(res);
+          this.userInfo = res.userInfo
+        },
+        fail: () => {
+          console.log('获取失败');
+        }
+      })
+    },
+    methods: {
+      handleGetUserInfo(res){
+        // 用户点击的是允许
+        if(res.mp.detail.userInfo){
+          this.userInfo = res.mp.detail.userInfo
+        }
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

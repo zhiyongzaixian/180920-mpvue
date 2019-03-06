@@ -22,6 +22,20 @@ router.get('/searchBooks', async (ctx, next) => {
   ctx.body = result
 });
 
+
+const appId = 'wx0db5ac6ea2aca4fe'
+const appSecret = '4a9ed63ce3ff7701485a2ccb27dd1ba1'
+
+// 获取用户的身份标识： openId
+router.get('/getOpenId', async (ctx, next) => {
+  // 获取参数code
+  let code = ctx.query.code;
+  let url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${appSecret}&js_code=${code}&grant_type=authorization_code`
+  let result = await get(url)
+  console.log(result.data, typeof result.data);
+  ctx.body = JSON.parse(result.data).openid;
+});
+
 // 声明使用中间键
 app
   .use(router.routes())
